@@ -11,7 +11,7 @@ export const products = [
         description2: "安心雞肉 × 世界優質食材",
         description3: "• 98% 超高鮮肉含量 • 0% 膠類 穀類 豆類",
         image: "/images/Amy_img/products/01.twomeats-1-247x247.jpg",
-        image2: "/images//Amy_img/products/01.twomeats-05-1-510x510-1.jpg"
+        image2: "/images/Amy_img/products/01.twomeats-05-1-510x510-1.jpg"
     },
     {
         id: 2,
