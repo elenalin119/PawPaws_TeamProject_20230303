@@ -27,46 +27,46 @@ export default function SingleProductDesktop({ product, matches }) {
     closeProductDetailDialog,
   ] = useDialogModal(ProductDetail)
 
-  const { addToCart, addToCartText } = useCart(product)
+  const { addToCart, addToCartText } = useCart(product);
 
   const handleMouseEnter = () => {
     setShowOptions(true)
-  }
+  };
 
   const handleMouseLeave = () => {
     setShowOptions(false)
-  }
+  };
   return (
     <>
-      <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <ProductImage src={product.image} />
-        <ProductFavButton isFav={0} sx={{ bgcolor: '#fff9f2' }}>
-          <FavoriteIcon />
-        </ProductFavButton>
-        {showOptions && (
-          <ProductAddToCart
-            onClick={addToCart}
-            show={showOptions}
-            variant="contained"
-            startIcon={<PetsIcon sx={{ color: shades.black[500] }} />}
-          >
-            {/* 加入購物車 */}
-            {addToCartText}
-          </ProductAddToCart>
-        )}
-        <ProductActionsWrapper show={showOptions}>
-          <Stack direction="column">
-            <ProductActionButton>
-              <ShareIcon color="blue" />
-            </ProductActionButton>
-            <ProductActionButton onClick={() => showProductDetailDialog()}>
-              <FitScreenIcon color="blue" />
-            </ProductActionButton>
-          </Stack>
-        </ProductActionsWrapper>
-      </Product>
-      <ProductTag product={product} matches={matches} />
-      <ProductDetailDialog product={product} />
+<Product onMouseEnter= {handleMouseEnter}  onMouseLeave= {handleMouseLeave} >
+	<ProductImage src={product.image}/>
+	<ProductFavButton isFav={0} sx={{bgcolor: "#fff9f2"}}>
+		<FavoriteIcon />
+	</ProductFavButton>
+	{ showOptions && (
+		<ProductAddToCart 
+		onClick= {addToCart}
+		show= {showOptions} 
+		variant="contained"
+		startIcon={<PetsIcon sx={{ color: shades.black[500] }} />}
+		>
+		{/* 加入購物車 */}
+		{addToCartText}
+	</ProductAddToCart>
+	)}
+	<ProductActionsWrapper show={showOptions}>
+		<Stack direction="column" >
+			<ProductActionButton>
+				<ShareIcon color ="blue"/>
+			</ProductActionButton>
+			<ProductActionButton onClick ={ () => showProductDetailDialog() }>
+				<FitScreenIcon color ="blue"/>
+			</ProductActionButton>
+		</Stack>
+	</ProductActionsWrapper>
+</Product>
+<ProductTag product={product} matches={matches} />
+<ProductDetailDialog product={product} />
     </>
   )
 }

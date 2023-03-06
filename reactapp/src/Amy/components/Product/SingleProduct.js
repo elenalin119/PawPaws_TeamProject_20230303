@@ -28,31 +28,30 @@ export default function SingleProduct({ product, matches }) {
 
   return (
     <>
-      <Product>
-        <ProductImage src={product.image} />
-        <ProductTag product={product} matches={matches} />
-        <ProductActionsWrapper>
-          <Stack direction="row">
-            <ProductFavButton isFav={0}>
-              <FavoriteIcon />
-            </ProductFavButton>
-            <ProductActionButton>
-              <ShareIcon color="blue" />
-            </ProductActionButton>
-            <ProductActionButton onClick={() => showProductDetailDialog()}>
-              <FitScreenIcon color="blue" />
-            </ProductActionButton>
-          </Stack>
-        </ProductActionsWrapper>
-      </Product>
-      <ProductAddToCart
-        onClick={addToCart}
-        variant="contained"
-        startIcon={<PetsIcon sx={{ color: shades.black[500] }} />}
-      >
-        {addToCartText}
-      </ProductAddToCart>
-      <ProductDetailDialog product={product} />
+    <Product>
+      <ProductImage src= {product.image}/>
+      <ProductTag product={product} matches={matches} />
+      <ProductActionsWrapper>
+        <Stack direction="row" >
+          <ProductFavButton isFav={0}>
+            <FavoriteIcon/>
+          </ProductFavButton>
+          <ProductActionButton >
+            <ShareIcon color ="blue"/>
+          </ProductActionButton>
+          <ProductActionButton onClick ={ () => showProductDetailDialog() }>
+            <FitScreenIcon color ="blue"/>
+          </ProductActionButton>
+        </Stack>
+      </ProductActionsWrapper>
+    </Product>
+    <ProductAddToCart 
+      onClick={addToCart}
+      variant="contained" 
+      startIcon={<PetsIcon sx={{ color: shades.black[500] }} />}>
+      {addToCartText}
+    </ProductAddToCart>
+    <ProductDetailDialog product={product} />
     </>
   )
 }
