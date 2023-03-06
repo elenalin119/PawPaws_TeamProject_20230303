@@ -1,6 +1,6 @@
 import {Box, Pagination} from  "@mui/material";
 import { useEffect, useState } from "react";
-import service from "../../services";
+import service from "../../services/index";
 
 //設定一頁呈現幾個商品
 const pageSize = 6;

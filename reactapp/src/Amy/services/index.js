@@ -1,4 +1,4 @@
-import { products } from "../data";
+import { products } from "../data/index";
 
 const service ={
 	getData: ({from, to}) =>{
