@@ -31,7 +31,7 @@ export default function Cart(){
 	//移除商品
 	const { removeItem } = useCart();
 	const removeItemWithConfirmation = (itemId) => {
-		const confirmed = window.confirm("確定要移除此項商品嗎？");
+		const confirmed = window.confirm("確定移除此項商品？");
 		if (confirmed) {
 			removeItem(itemId);
 		}
