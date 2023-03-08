@@ -7,14 +7,17 @@ import {
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { useNavigate } from 'react-router-dom'
 import { useUIContext } from '../../context/UI'
+import { useCart } from '../../hooks/useCart'
 
 //購物車狀態
 // import { useDispatch, useSelector } from "react-redux";
 // import { setIsCartOpen } from "../../state/index";
 
 export default function Actions({ matches }) {
-  const { cart, setShowCart } = useUIContext()
+  const { setShowCart } = useUIContext()
 
+  const cart = useCart().items
+  
   const Component = matches
     ? ActionIconsContainerMobile
     : ActionIconsContainerDesktop
