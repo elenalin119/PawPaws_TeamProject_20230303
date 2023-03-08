@@ -5,14 +5,14 @@ export const useUIContext = () => useContext(UIContext)
 
 export const UIProvider = ({ children }) => {
   const [drawerOpen, setDrawerOpen] = useState(false)
-  const [cart, setCart] = useState([])
+  // const [cart, setCart] = useState([])
   const [showCart, setShowCart] = useState(false)
 
   const value = {
     drawerOpen,
     setDrawerOpen,
-    cart,
-    setCart,
+    // cart,
+    // setCart,
     showCart,
     setShowCart,
   }
