@@ -16,20 +16,27 @@ import PetsIcon from '@mui/icons-material/Pets'
 import { shades } from '../../../styles/theme'
 import useDialogModal from '../../hooks/useDialogModal'
 import ProductDetail from '../ProductDetail/index'
-import useCart from '../../hooks/useCart'
+import { useCart } from '../../hooks/useCart'
 
 export default function SingleProductDesktop({ product, matches }) {
-  const [showOptions, setShowOptions] = useState(false)
+  const [showOptions, setShowOptions] = useState(false);
 
   const [
     ProductDetailDialog,
     showProductDetailDialog,
     closeProductDetailDialog,
-  ] = useDialogModal(ProductDetail)
+  ] = useDialogModal(ProductDetail);
 
-  const { addToCart, addToCartText } = useCart(product);
+  // const { addToCart, addToCartText } = useCart(product);
+	const { addItem, isInCart, removeItem } = useCart();
 
-  const handleMouseEnter = () => {
+	const addToCart = () =>{
+    return isInCart(product.id)? removeItem(product.id): addItem({...product, quantity: 1})
+  };
+
+  const addToCartText = isInCart(product.id)? "移除" : "加購物車";
+
+	const handleMouseEnter = () => {
     setShowOptions(true)
   };
 
@@ -68,5 +75,5 @@ export default function SingleProductDesktop({ product, matches }) {
 <ProductTag product={product} matches={matches} />
 <ProductDetailDialog product={product} />
     </>
-  )
+  );
 }
