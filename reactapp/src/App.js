@@ -66,15 +66,14 @@ function App() {
                 {/* http://localhost:3000/hotel */}
                 <Route path="/hotel" element={<Hotel />} />
                 <Route path="/hotel/hotellist" element={<HotelList />} />
-                <Route
-                  path="/hotel/hoteldetail/:id?"
-                  element={<HotelDetail />}
-                />
+                <Route path="/hotel/hoteldetail/:id?" element={<HotelDetail />}/>
 
                 {/* ** Natalie ** */}
                 {/* http://localhost:3000/activity */}
                 <Route path="/activity" element={<Activity />} />
-                <Route path="/activity/detail" element={<ActivityDetail />} />
+                <Route path="/activity/detail/:activity_id" element={<ActivityDetail />}/>
+                {/* <Route path="/activity/signup" element={<ActivitySignUp />} /> */}
+                {/* <Route path="/collection" element={<Collection />} /> */}
 
                 {/* ** Abby ** */}
                 {/* http://localhost:3000/members */}
@@ -88,6 +87,7 @@ function App() {
                 {/* <Route path="/shopcart" element={<shopcart />} /> */}
               </Routes>
             </main>
+
             <Footer />
             <AppDrawer />
             <Cart />
