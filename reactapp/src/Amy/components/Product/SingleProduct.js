@@ -15,7 +15,7 @@ import PetsIcon from '@mui/icons-material/Pets'
 import { shades } from '../../../styles/theme'
 import useDialogModal from '../../hooks/useDialogModal'
 import ProductDetail from '../ProductDetail/index'
-import useCart from '../../hooks/useCart'
+import { useCart } from '../../hooks/useCart'
 
 export default function SingleProduct({ product, matches }){
 
