@@ -61,10 +61,6 @@ function App() {
                 {/* ** Amy ** */}
                 {/* http://localhost:3000/shop */}
                 <Route path="/shop" element={<Shop />} />
-                <Route path="/collection" element={<Collection />} />
-                {/* http:localhost:3001/cart */}
-                {/* <Route path="/cart" element={<Cart/>} /> */}
-                {/* http:localhost:3001/collection */}
 
                 {/* ** Elena ** */}
                 {/* http://localhost:3000/hotel */}
