@@ -1,15 +1,16 @@
-import { IconButton, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from "@mui/icons-material/Remove";
-import { useState } from "react";
-import { clamp } from "./Clamp";
-import { shades } from "../../../styles/theme";
+import { IconButton, Typography } from "@mui/material"
+import { Box } from "@mui/system"
+import AddIcon from '@mui/icons-material/Add'
+import RemoveIcon from "@mui/icons-material/Remove"
+// import { useState } from "react";
+// import { clamp } from "./Clamp";
+import { shades } from "../../../styles/theme"
+import { useCart } from '../../hooks/useCart'
 
-
-export default function Count(){
-  const clampValue = clamp(1, 10);
-  const [value, setValue] = useState(1);
+export default function Count({id,quantity}){
+  // const clampValue = clamp(1, 10);
+  // const [value, setValue] = useState(1);
+  const {plusOne, minusOne} = useCart();
 
   return (
     <>
@@ -20,19 +21,23 @@ export default function Count(){
           borderRadius: 0,
           background: `${shades.primary[500]}`,
         }}
-        onClick={() => setValue(clampValue(value - 1))}
+        onClick={() => {
+          minusOne(id)
+          // setValue(clampValue(value - 1))
+        }
+        }
       >
         <RemoveIcon />
       </IconButton>
       <Typography
-        variant="body1"
+        variant="body2"
         sx={{
           border: `1px solid ${shades.primary[500]}`,
-          p: 1.5,
+          p: 2,
           background: `${shades.beige_light[100]}`,
         }}
       >
-        {value}
+        {quantity}
       </Typography>
       <IconButton
         size="small"
@@ -40,7 +45,10 @@ export default function Count(){
           borderRadius: 0,
           background: `${shades.primary[500]}`,
         }}
-        onClick={() => setValue(clampValue(value + 1))}
+        onClick={() => {
+          plusOne(id)
+          //setValue(clampValue(value + 1))
+          }}
       >
         <AddIcon />
       </IconButton>

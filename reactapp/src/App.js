@@ -1,15 +1,14 @@
 import Home from './pages/Home'
-
 import Shop from './pages/Shop'
-
 import Bar from './Amy/components/Bar/index'
 import Promotion from './Amy/components/Promotion/index'
 import AppDrawer from './Amy/components/Drawer/index'
 import { UIProvider } from './Amy/context/UI/index'
+import { CartProvider } from './Amy/hooks/useCart'
 import Cart from '../src/Amy/components/Cart/index'
 
 import Hotel from './pages/Hotel'
-import Mainphoto from './Elena/components/mainphoto/Mainphoto'
+
 import HotelDetail from './Elena/pages/hotelDetail/HotelDetail'
 import HotelList from './Elena/pages/hotelList/HotelList'
 
@@ -17,16 +16,16 @@ import Activity from './pages/Activity'
 import ActivityDetail from './Natalie/pages/ActivityDetail'
 
 import Members from './pages/Members'
-import Edit from './Abby/pages/Edit'
+
 import Register from './Abby/pages/Register'
 import NewPwd from './Abby/pages/NewPwd'
 import Order from './Abby/pages/Order'
 import MemberInfo from './Abby/pages/MemberInfo'
 
 import React from 'react'
-import Header from './components/headers/Headers'
+
 import Footer from './components/Footer/index'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { useEffect } from 'react'
 import { Container } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
@@ -48,6 +47,7 @@ function App() {
           sx={{ background: '#fff5ea', margin: '0' }}
         >
           <UIProvider>
+          <CartProvider>
             <Promotion sx={{ position: 'fixed' }} />
             <Bar sx={{ position: 'fixed' }} />
 
@@ -91,6 +91,7 @@ function App() {
             <Footer />
             <AppDrawer />
             <Cart />
+            </CartProvider>
           </UIProvider>
         </Container>
       </ThemeProvider>

@@ -19,7 +19,7 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import { useCart } from '../../hooks/useCart'
+import { useCart } from '../../../Amy/hooks/useCart'
 import PetsIcon from '@mui/icons-material/Pets'
 
 function SlideTransition(props){
