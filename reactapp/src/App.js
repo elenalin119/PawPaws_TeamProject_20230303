@@ -1,7 +1,7 @@
 import Home from './pages/Home'
 
 import Shop from './pages/Shop'
-import Collection from '../src/Amy/pages/Collection'
+
 import Bar from './Amy/components/Bar/index'
 import Promotion from './Amy/components/Promotion/index'
 import AppDrawer from './Amy/components/Drawer/index'
