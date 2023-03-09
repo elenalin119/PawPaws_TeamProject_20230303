@@ -14,6 +14,7 @@ import HotelList from './Elena/pages/hotelList/HotelList'
 
 import Activity from './pages/Activity'
 import ActivityDetail from './Natalie/pages/ActivityDetail'
+import Collection from './pages/Collection'
 
 import Members from './pages/Members'
 
@@ -73,7 +74,7 @@ function App() {
                 <Route path="/activity" element={<Activity />} />
                 <Route path="/activity/detail/:activity_id" element={<ActivityDetail />}/>
                 {/* <Route path="/activity/signup" element={<ActivitySignUp />} /> */}
-                {/* <Route path="/collection" element={<Collection />} /> */}
+                <Route path="/collection" element={<Collection />} />
 
                 {/* ** Abby ** */}
                 {/* http://localhost:3000/members */}
