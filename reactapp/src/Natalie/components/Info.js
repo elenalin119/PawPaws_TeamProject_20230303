@@ -2,7 +2,7 @@ import React, { navigate } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Collectbtn from './Collectbtn'
-import 'datejs'
+// import 'datejs'
 
 function Info(props) {
   const { activityDetail } = props

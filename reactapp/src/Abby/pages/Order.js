@@ -1,5 +1,5 @@
 import React from "react";
-import OrderList from "../components/OrderList";
+import OrderList from "../../Abby/components/OrderList";
 
 function Order() {
   const listArr = [
