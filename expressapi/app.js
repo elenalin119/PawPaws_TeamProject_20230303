@@ -11,6 +11,7 @@ const shopRouter = require('./routes/shop');
 const hotelRouter = require('./routes/hotel');
 const activityRouter = require('./routes/activity');
 const membersRouter = require('./routes/members');
+const productRouter = require('./routes/products');
 const app = express();
 app.use(cors());
 
@@ -31,6 +32,10 @@ app.use('/', indexRouter);
 //http://localhost:3000/shop
 app.use('/shop', shopRouter);
 
+//http://localhost:3000/products
+app.use('/products', productRouter);
+
+
 //http://localhost:3000/hotel
 app.use('/hotel',hotelRouter);
 
@@ -39,6 +44,7 @@ app.use('/activity',activityRouter);
 
 //http://localhost:3000/members
 app.use('/members', membersRouter);
+
 
 
 // catch 404 and forward to error handler
