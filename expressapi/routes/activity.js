@@ -19,10 +19,8 @@ router.get('/detail/:activity_id', async (req, res) => {
 //收藏
 router.use((req, res, next) => {
   const { url, baseUrl, originalUrl } = req
-
   //...res.locals的作用是把url, baseUrl, originalUrl塞進去
   res.locals = { ...res.locals, url, baseUrl, originalUrl }
-
   next()
 })
 
@@ -90,29 +88,29 @@ router.get('/alikes', async (req, res) => {
 })
 
 //拿到報名資訊
-// router.get('/participants', (req, res) => {
-//   res.send('participants sign up page')
-// })
 router.post('/participants', (req, res) => {
   const {
     name: a_name,
     email: a_email,
     phone: a_phone,
     address: a_address,
+    activity_id: activity_id,
   } = req.body
   console.log(req.body)
   const sql =
-    'INSERT INTO participants (a_name, a_mail, a_phone, a_address) VALUES (?, ?, ?, ?)'
-  db.query(sql, [a_name, a_email, a_phone, a_address], (err, result) => {
-    if (err) {
-      console.log(err)
+    'INSERT INTO participants (a_name, a_email, a_phone, a_address ,activity_id) VALUES (?, ?, ?, ?, ?)'
+  db.query(
+    sql,
+    [a_name, a_email, a_phone, a_address, activity_id],
+    (err, result) => {
+      if (err) {
+        console.log(err)
+        res.status(500).send('Error: database error')
+      }
+      console.log(result)
       res.sendStatus(200)
-      return
     }
-
-    console.log(result)
-    res.sendStatus(200)
-  })
+  )
 })
 
 //其他
