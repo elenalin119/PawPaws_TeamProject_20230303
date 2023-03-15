@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import GoogleButton from 'react-google-button'
 import './members.scss'
 import { Link } from 'react-router-dom'
-import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -14,32 +12,13 @@ import Eyes from '../components/Eyes'
 function Register() {
   const navigate = useNavigate()
 
-  //for show nad hide psasword eyes icons
+  //密碼顯示的眼睛開關
   const [passwordType, setPasswordType] = useState('password')
   const [passwordIcon, setPasswordIcon] = useState(<VisibilityOffIcon />)
-
-  const handleToggle = () => {
-    if (passwordType === 'password') {
-      setPasswordType('text')
-      setPasswordIcon(<VisibilityIcon />)
-    } else {
-      setPasswordType('password')
-      setPasswordIcon(<VisibilityOffIcon />)
-    }
-  }
 
   const [passwordType2, setPasswordType2] = useState('password')
   const [passwordIcon2, setPasswordIcon2] = useState(<VisibilityOffIcon />)
 
-  const handleToggle2 = () => {
-    if (passwordType2 === 'password') {
-      setPasswordType2('text')
-      setPasswordIcon2(<VisibilityIcon />)
-    } else {
-      setPasswordType2('password')
-      setPasswordIcon2(<VisibilityOffIcon />)
-    }
-  }
 
   const [user, setUser] = useState({
     email: '',

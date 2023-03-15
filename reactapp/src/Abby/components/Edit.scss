@@ -69,13 +69,16 @@ button{
 
 
   @media screen and (min-width:768px){
-    .group select{
-      font-size: 16px;
+  .group{
+    position: relative;
+    select{
+    font-size: 16px;
     }
-    .group span{
-      font-size: 16px;
-      margin: 0 0 10px 0;
+    span{
+    font-size: 16px;
+    margin: 0 0 10px 0;
     }
+  }
     button{
       font-size: 16px;
     }

@@ -9,18 +9,27 @@ import AuthService from '../Abby/auth.service'
 import { useNavigate } from 'react-router-dom'
 import { auth, provide } from './config/firebase'
 import { signInWithPopup } from 'firebase/auth'
+import Eyes from '../Abby/components/Eyes'
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
+import styled from 'styled-components'
 
+
+const EyesIcon = styled.div`
+
+`
 function Members() {
   const navigate = useNavigate()
 
+  const [passwordType, setPasswordType] = useState('password')
+  const [passwordIcon, setPasswordIcon] = useState(<VisibilityOffIcon />)
+
+  //Google帳號登入
   const login = async () => {
     const result = await signInWithPopup(auth, provide)
-    console.log(result)
 
     const userInfo = { ...result.user, name: result.user.displayName }
     localStorage.setItem('user', JSON.stringify(userInfo))
     localStorage.setItem('googleAuth', true)
-    console.log('userInfo', userInfo)
 
     const response = await AuthService.register({
       email: result.user.email,
@@ -31,7 +40,6 @@ function Members() {
     if (!response.data?.state && response.data?.user) {
       localStorage.setItem('user', JSON.stringify(response.data.user[0]))
     }
-
     navigate('/memberInfo')
   }
 
@@ -161,12 +169,18 @@ function Members() {
                 <div className="group">
                   <input
                     name="userPassword"
-                    type="password"
+                    type={passwordType}
                     id="password"
                     placeholder="請輸入密碼"
                     onChange={handleInputData}
                     required
                   />
+                  <Eyes
+                    passwordType={passwordType}
+                    setPasswordType={setPasswordType}
+                    passwordIcon={passwordIcon}
+                    setPasswordIcon={setPasswordIcon}
+                  ></Eyes>
                   {fieldErrors.userPassword && (
                     <span className="error">{fieldErrors.userPassword}</span>
                   )}

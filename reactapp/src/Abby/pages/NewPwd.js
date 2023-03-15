@@ -6,6 +6,8 @@ import AuthService from '../auth.service'
 import md5 from 'md5'
 import Swal from 'sweetalert2'
 import { borderRadius, style } from '@mui/system'
+import Eyes from '../components/Eyes'
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 
 const LinkClassName = {
   textDecoration: 'none',
@@ -17,6 +19,13 @@ const NewPwdTitle = {
 
 function NewPwd() {
   const navigate = useNavigate()
+
+  //顯示密碼的眼睛icons
+  const [passwordType, setPasswordType] = useState('password')
+  const [passwordIcon, setPasswordIcon] = useState(<VisibilityOffIcon />)
+
+  const [passwordType2, setPasswordType2] = useState('password')
+  const [passwordIcon2, setPasswordIcon2] = useState(<VisibilityOffIcon />)
 
   const [page, setPage] = useState(0)
   const [token, setToken] = useState('')
@@ -100,7 +109,7 @@ function NewPwd() {
                 <div className="group">
                   {token === '' ? (
                     <input
-                      type="text"
+                      type="password"
                       name="oldPassword"
                       placeholder="請輸入舊密碼"
                       onChange={(e) => {
@@ -114,7 +123,7 @@ function NewPwd() {
                 </div>
                 <div className="group">
                   <input
-                    type="password"
+                    type={passwordType}
                     name="newPassword"
                     placeholder="請輸入新密碼"
                     onChange={(e) => {
@@ -122,10 +131,16 @@ function NewPwd() {
                     }}
                     required
                   />
+                  <Eyes
+                    passwordType={passwordType}
+                    setPasswordType={setPasswordType}
+                    passwordIcon={passwordIcon}
+                    setPasswordIcon={setPasswordIcon}
+                  ></Eyes>
                 </div>
                 <div className="group">
                   <input
-                    type="password"
+                    type={passwordType2}
                     name="newPassword2"
                     placeholder="請再次確認密碼"
                     onChange={(e) => {
@@ -133,6 +148,12 @@ function NewPwd() {
                     }}
                     required
                   />
+                  <Eyes
+                    passwordType={passwordType2}
+                    setPasswordType={setPasswordType2}
+                    passwordIcon={passwordIcon2}
+                    setPasswordIcon={setPasswordIcon2}
+                  ></Eyes>
                 </div>
               </div>
             </div>
