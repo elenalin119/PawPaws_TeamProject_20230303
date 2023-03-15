@@ -9,6 +9,7 @@ import axios from 'axios'
 import md5 from 'md5'
 import Swal from 'sweetalert2'
 import AuthService from '../auth.service'
+import Eyes from '../components/Eyes'
 
 function Register() {
   const navigate = useNavigate()
@@ -152,7 +153,7 @@ function Register() {
                     placeholder="請輸入email"
                     required
                   />
-                   <span className="error">{fieldErrors.email}</span>
+                  <span className="error">{fieldErrors.email}</span>
                   {/* <span className="error">{fieldErrors.password}</span> */}
                 </div>
                 <div className="group-password">
@@ -167,9 +168,15 @@ function Register() {
                     minLength={6}
                     maxLength={10}
                   />
-                  <span className="show-password-icon" onClick={handleToggle}>
+                  {/* <span className="show-password-icon" onClick={handleToggle}>
                     {passwordIcon}
-                  </span>
+                  </span> */}
+                  <Eyes
+                    passwordType={passwordType}
+                    setPasswordType={setPasswordType}
+                    passwordIcon={passwordIcon}
+                    setPasswordIcon={setPasswordIcon}
+                  ></Eyes>
                   <span className="error">{fieldErrors.password}</span>
                 </div>
                 <div className="group-password">
@@ -181,9 +188,15 @@ function Register() {
                     placeholder="請再次確認密碼"
                     required
                   />
-                  <span className="show-password-icon" onClick={handleToggle2}>
+                  {/* <span className="show-password-icon" onClick={handleToggle2}>
                     {passwordIcon2}
-                  </span>
+                  </span> */}
+                  <Eyes
+                    passwordType={passwordType2}
+                    setPasswordType={setPasswordType2}
+                    passwordIcon={passwordIcon2}
+                    setPasswordIcon={setPasswordIcon2}
+                  ></Eyes>
                   <span className="error">{fieldErrors.password2}</span>
                 </div>
               </div>

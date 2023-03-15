@@ -22,7 +22,7 @@ export default function MemberInfo() {
     <>
       <div className="container">
         <div
-          className="formHeader"
+          className="userFormHeader"
           style={
             windowWidth >= 768
               ? page === 0

@@ -1,8 +1,8 @@
 import React from 'react'
-import Table from '../Table'
+import Table from './Table'
 
 function ShopOrder({ sid }) {
-  const orderList3 = [
+  let orderList3 = [
     {
       id: 1,
       customerName: 'John Doe',
@@ -28,6 +28,10 @@ function ShopOrder({ sid }) {
       sid: 1085,
     },
   ]
+
+  orderList3 = orderList3.filter((order) => {
+    return order.sid === sid
+  })
 
   return (
     <>

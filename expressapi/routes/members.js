@@ -67,7 +67,6 @@ router.post('/checklogin', async (req, res, next) => {
 
 //會員註冊
 router.post('/register', async (req, res, next) => {
-
   const { email, password } = req.body
   const sql = `INSERT INTO members ( email, password ) VALUES (?,?)`
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Order from './OrderList/Order'
+import Order from './Order'
 
 const orderListArea = {
   margin: 'auto',
@@ -65,29 +65,15 @@ function Table({ orderList, header, sid }) {
                   <td style={{ ...ThTdTable, ...td }}>&nbsp;</td>
                 </tr>
               ) : (
-                orderList
-                  .filter((order) => {
-                    return order.sid === sid
-                  })
-                  .map((order, idx) => (
-                    <tr key={idx}>
-                      <td style={{ ...ThTdTable, ...td }}>
-                        {order[header[0]]}
-                      </td>
-                      <td style={{ ...ThTdTable, ...td }}>
-                        {order[header[1]]}
-                      </td>
-                      <td style={{ ...ThTdTable, ...td }}>
-                        {order[header[2]]}
-                      </td>
-                      <td style={{ ...ThTdTable, ...td }}>
-                        {order[header[3]]}
-                      </td>
-                      <td style={{ ...ThTdTable, ...td }}>
-                        {order[header[4]]}
-                      </td>
-                    </tr>
-                  ))
+                orderList.map((order, idx) => (
+                  <tr key={idx}>
+                    <td style={{ ...ThTdTable, ...td }}>{order[header[0]]}</td>
+                    <td style={{ ...ThTdTable, ...td }}>{order[header[1]]}</td>
+                    <td style={{ ...ThTdTable, ...td }}>{order[header[2]]}</td>
+                    <td style={{ ...ThTdTable, ...td }}>{order[header[3]]}</td>
+                    <td style={{ ...ThTdTable, ...td }}>{order[header[4]]}</td>
+                  </tr>
+                ))
               )}
             </tbody>
           </table>

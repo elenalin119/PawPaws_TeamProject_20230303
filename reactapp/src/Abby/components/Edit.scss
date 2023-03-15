@@ -8,7 +8,7 @@ button{
   font-size: 13px;
 }
 }
-.formHeader{
+.userFormHeader{
     display: flex;
     // max-width: 600px;
     margin: 0;
@@ -16,7 +16,7 @@ button{
     margin: auto;
     // width: 600px;
   }
-  .formHeader button{
+  .userFormHeader button{
     flex: 0 0 25%;
     max-width: 150px;
     font-size: 16px;
@@ -26,7 +26,7 @@ button{
     border-radius: 10px 10px 0px 0px;
   }
 
-  .formHeader button.active{
+  .userFormHeader button.active{
     background-color: #8DD9CE;
     color:#fff;
   }
@@ -82,7 +82,7 @@ button{
     .profileArea button{   
       font-size: 16px;
     }
-    .formHeader{
+    .userFormHeader{
       width: 600px;
     }
 
