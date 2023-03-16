@@ -27,6 +27,9 @@ function NewPwd() {
   const [passwordType2, setPasswordType2] = useState('password')
   const [passwordIcon2, setPasswordIcon2] = useState(<VisibilityOffIcon />)
 
+  const [passwordType3, setPasswordType3] = useState('password')
+  const [passwordIcon3, setPasswordIcon3] = useState(<VisibilityOffIcon />)
+
   const [page, setPage] = useState(0)
   const [token, setToken] = useState('')
   const [data, setData] = useState({})
@@ -109,7 +112,7 @@ function NewPwd() {
                 <div className="group">
                   {token === '' ? (
                     <input
-                      type="password"
+                      type={passwordType3}
                       name="oldPassword"
                       placeholder="請輸入舊密碼"
                       onChange={(e) => {
@@ -120,6 +123,12 @@ function NewPwd() {
                   ) : (
                     ''
                   )}
+                  <Eyes
+                    passwordType={passwordType3}
+                    setPasswordType={setPasswordType3}
+                    passwordIcon={passwordIcon3}
+                    setPasswordIcon={setPasswordIcon3}
+                  ></Eyes>
                 </div>
                 <div className="group">
                   <input

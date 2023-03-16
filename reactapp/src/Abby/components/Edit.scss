@@ -35,11 +35,12 @@ button{
     color: #fff;
     text-decoration: none;
   }
-
-  .group span{
+.group{
+  position: relative;
+  .span{
     font-size: 13px;
   }
-  .group select{
+  .select{
     padding: 10px;
     margin-right: 10px;
     border: 1px solid #8DD9CE;
@@ -47,6 +48,9 @@ button{
     letter-spacing: 0.5px;
     font-size: 13px;
   }
+}
+
+
   .group span{
     display: block;
     margin: 0 0 10px;

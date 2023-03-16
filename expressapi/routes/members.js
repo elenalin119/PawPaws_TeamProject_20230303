@@ -238,10 +238,12 @@ router.post('/changePassword', async function (req, res) {
   )
 })
 
+//活動訂單
 router.get('/getActivityData/:sid', async (req, res) => {
   const sid = req.params.sid
 
-  const sql = 'SELECT * FROM `participants` WHERE sid=?;'
+  const sql =
+    'SELECT * FROM `participants` AS a JOIN activity AS b ON a.activity_id=b.activity_id WHERE sid=?;'
   const [rows] = await db.query(sql, [sid])
 
   return res.json(rows)

@@ -7,7 +7,7 @@ function ShopOrder({ sid }) {
       id: 1,
       customerName: 'John Doe',
       orderDate: '2023-03-10',
-      product: 'apple10',
+      product: 'Iphone8',
       orderStatus: 'Processing',
       sid: 1111,
     },
@@ -15,7 +15,7 @@ function ShopOrder({ sid }) {
       id: 2,
       customerName: 'Jane Smith',
       orderDate: '2023-03-11',
-      product: 'apple11',
+      product: 'Iphone9',
       orderStatus: 'Shipped',
       sid: 1085,
     },
@@ -23,7 +23,7 @@ function ShopOrder({ sid }) {
       id: 3,
       customerName: 'Bob Johnson',
       orderDate: '2023-03-12',
-      product: 'apple12',
+      product: 'IphoneXS',
       orderStatus: 'Delivered',
       sid: 1085,
     },
@@ -37,7 +37,13 @@ function ShopOrder({ sid }) {
     <>
       <Table
         orderList={orderList3}
-        header={['id', 'customerName', 'orderDate', 'product', 'orderStatus']}
+        header={[
+          ['姓名', 'a_name'],
+          ['活動名稱', 'title'],
+          ['活動地點', 'place'],
+          ['截止日期', 'deadline'],
+          ['活動內容', 'content'],
+        ]}
         sid={sid}
       ></Table>
     </>
