@@ -35,7 +35,7 @@ function CollectCard() {
     <>
       <CardWrap>
         {favorite.map((favorite) => (
-          <Ccard>
+          <Ccard key={favorite.activity_id}>
             <img
               src={
                 'http://localhost:3001/images/Natalie_img/' + favorite.picture
