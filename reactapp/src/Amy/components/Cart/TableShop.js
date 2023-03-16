@@ -1,5 +1,5 @@
 import React from 'react'
-import Order from '../../../Abby/components/OrderList/Order'
+// import Order from '../../../Abby/components/OrderList/Order'
 
 const orderListArea = {
   margin: 'auto',
