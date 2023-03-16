@@ -89,17 +89,45 @@ router.post('/checkout', async (req, res) => {
   }
 })
 
-
-//TODO
-
 // 訂單編號-訂單狀態-訂購日期-訂單金額-付款方式-出貨狀態-會員ID >>>訂單查詢（指定會員id）
 // SELECT * FROM `s_order` WHERE `s_order_user_id` = 1076;
+router.get('/getOrder/:id', async (req, res) => {
+  const sql = 'SELECT * FROM `s_order` WHERE `s_order_user_id` = ?'
+  const [rows] = await db.query(sql, [req.params.id])
+  res.json(rows)
+})
+// http://localhost:3000/shop/getOrder/1076
+
 
 // 商品流水號-訂單編號-商品名-商品圖片-商品數量-商品合計 >>>訂單明細（指定訂單編號id）
 // SELECT * FROM `s_order_detail` WHERE `s_order_id`='167872153862858';
+router.get('/getOrderDetail/:id', async (req, res) => {
+  const id = req.params.id
+  const sql = 'SELECT * FROM `s_order_detail` WHERE `s_order_id`=?'
+  const [rows] = await db.query(sql, [id])
+  res.json(rows)
+})
+//http://localhost:3000/shop/getOrderDetail/167872153862858
 
 // 訂單編號-會員名稱-信箱-手機-地址-訂單金額 >>>訂購人資料(全部訂單)
 // SELECT o.s_order_id,m.name,m.email,m.mobile,m.address,o.s_order_total FROM `s_order` AS o JOIN `members` AS m ON o.`s_order_user_id` = m.`sid` WHERE o.`s_order_user_id`;  
+// Get all orders for all members 
+router.get('/getOrders', async (req, res) => {
+  try {
+    const sql = 'SELECT o.s_order_id,m.name,m.email,m.mobile,m.address,o.s_order_total FROM `s_order` AS o JOIN `members` AS m ON o.`s_order_user_id` = m.`sid` WHERE o.`s_order_user_id`'
+    const [rows, fields] = await db.query(sql)
+
+    if (!rows.length) {
+      return res.status(404).json({ message: 'No orders found' })
+    }
+
+    res.json(rows)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'An error occurred while getting orders' })
+  }
+})
+//http://localhost:3000/shop/getOrders
 
 
 module.exports = router
