@@ -28,7 +28,7 @@ function HotelBookingHotel() {
                 <div>兒童: 2 人</div>
                 <div>寵物: 1 位</div>
               </div>
-              <div>價格: NT$ 9,900元 (含稅價)</div>
+              <div>價格: NT$ 9,800元 (含稅價)</div>
             </div>
           </div>
         </hotelForm>
