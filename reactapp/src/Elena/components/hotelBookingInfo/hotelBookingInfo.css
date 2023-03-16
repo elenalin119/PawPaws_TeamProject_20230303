@@ -37,6 +37,10 @@
   padding: 10px;
 }
 
+.hotelFormDetail h4 {
+  color: #0071c2;
+}
+
 .profileArea {
   display: flex;
   justify-content: space-between;
