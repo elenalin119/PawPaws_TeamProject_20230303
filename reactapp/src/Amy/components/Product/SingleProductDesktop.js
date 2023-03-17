@@ -18,7 +18,7 @@ import useDialogModal from '../../hooks/useDialogModal'
 import ProductDetail from '../ProductDetail/index'
 import { useCart } from '../../hooks/useCart'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-
+import Swal from 'sweetalert2'
 
 export default function SingleProductDesktop({product, matches}){
 	const [isFav, setIsFav] = useState(false); // 是否按下愛心按鈕的狀態
@@ -28,10 +28,29 @@ export default function SingleProductDesktop({product, matches}){
       setIsFav(JSON.parse(storedFav));
     }
   }, [product.id]);
-	const handleFavButtonClick = () => {
+	
+  const handleFavButtonClick = () => {
     const newFav = !isFav;
     setIsFav(newFav);
     localStorage.setItem(`product-${product.id}-fav`, JSON.stringify(newFav));
+    if (!newFav) {
+      localStorage.removeItem(`product-${product.id}-fav`);
+    }
+    if (newFav) {
+      Swal.fire({
+        title: '收藏成功！',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#8dd9c4'
+      })
+    } else {
+      Swal.fire({
+        title: '取消收藏！',
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#8dd9c4'
+      })
+    }
   };
 		// const handleFavButtonClick = () => {
   //   setIsFav(!isFav);
@@ -47,9 +66,20 @@ export default function SingleProductDesktop({product, matches}){
 
 	const { addItem, isInCart, removeItem } = useCart();
 
+  // const addToCart = () =>{
+  //   return isInCart(product.id)? removeItem(product.id): addItem({...product, quantity: 1})
+  // };
   const addToCart = () =>{
+    const successMessage = isInCart(product.id) ? '移除成功！' : '加入成功！';
+    Swal.fire({
+    title: successMessage,
+    icon: 'success',
+    confirmButtonText: 'OK',
+    confirmButtonColor: '#8dd9c4'
+    });
     return isInCart(product.id)? removeItem(product.id): addItem({...product, quantity: 1})
-  };
+    };
+
 
   const addToCartText = isInCart(product.id)? "移除" : "加購物車";
   
