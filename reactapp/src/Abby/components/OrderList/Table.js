@@ -1,5 +1,6 @@
 import React from 'react'
 import Order from './Order'
+import 'datejs'
 
 const orderListArea = {
   margin: 'auto',
@@ -69,13 +70,14 @@ function Table({ orderList, header, sid }) {
                   <tr key={idx}>
                     <td style={{ ...ThTdTable, ...td }}>{order[header[0][1]]}</td>
                     {/* order[header[0][1]] = order['a_name'] =  "測試員阿比" */}
-                    <td style={{ ...ThTdTable, ...td }}>{order[header[1][1]]}</td>
+                    <td style={{ ...ThTdTable, ...td }}>{new Date(order[header[1][1]]).toString('yyyy-MM-dd')}</td>
                     <td style={{ ...ThTdTable, ...td }}>{order[header[2][1]]}</td>
                     <td style={{ ...ThTdTable, ...td }}>{order[header[3][1]]}</td>
                     <td style={{ ...ThTdTable, ...td }}>{order[header[4][1]]}</td>
                   </tr>
                 ))
               )}
+              
             </tbody>
           </table>
           {/* </div> */}

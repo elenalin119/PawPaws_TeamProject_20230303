@@ -249,5 +249,14 @@ router.get('/getActivityData/:sid', async (req, res) => {
   return res.json(rows)
 })
 
+// 商城訂單
+router.get('/getOrderData/:sid', async (req, res) => {
+  const sid = req.params.sid
+
+  const sql = 'SELECT * FROM s_order WHERE s_order_user_id =?'
+  const [rows] = await db.query(sql, [sid])
+
+  return res.json(rows)
+})
 // http://localhost:3000/members/getActivityData/2
 module.exports = router

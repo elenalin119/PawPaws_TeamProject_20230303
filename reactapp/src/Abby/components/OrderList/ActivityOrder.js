@@ -24,9 +24,9 @@ function ActivityOrder({ sid }) {
         orderList={orderList}
         header={[
           ['姓名', 'a_name'],
+          ['截止日期', 'deadline'],
           ['活動名稱', 'title'],
           ['活動地點', 'place'],
-          ['截止日期', 'deadline'],
           ['活動內容', 'content'],
         ]} //
         sid={sid}
