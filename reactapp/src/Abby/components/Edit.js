@@ -75,6 +75,7 @@ export default function Edit() {
       user.address === fullAddress
 
     const data = {
+
       name: userName,
       email,
       birthday: `${year}-${month}-${day}`,

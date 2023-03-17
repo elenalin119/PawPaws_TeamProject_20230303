@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import Edit from '../components/Edit'
 import Order from '../components/OrderList/Order'
 
 export default function MemberInfo() {
+  const orderTag = +useParams().orderTag
   const [page, setPage] = useState(0)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
@@ -10,19 +12,20 @@ export default function MemberInfo() {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth)
     }
+    setPage(orderTag || 0)
 
     window.addEventListener('resize', handleWindowResize)
 
     return () => {
       window.removeEventListener('resize', handleWindowResize)
     }
-  }, [])
+  }, [orderTag])
 
   return (
     <>
       <div className="container">
         <div
-          className="formHeader"
+          className="userFormHeader"
           style={
             windowWidth >= 768
               ? page === 0

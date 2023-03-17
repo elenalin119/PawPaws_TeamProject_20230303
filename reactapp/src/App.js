@@ -91,7 +91,6 @@ function App() {
                     element={<HotelBookingSuccess />}
                   />
 
-
                   {/* ** Natalie ** */}
                   {/* http://localhost:3000/activity */}
                   <Route path="/activity" element={<Activity />} />
@@ -109,7 +108,10 @@ function App() {
                   {/* http://localhost:3000/members */}
                   <Route path="/members" element={<Members />} />
                   <Route path="/Register" element={<Register />} />
-                  <Route path="/Memberinfo" element={<MemberInfo />} />
+                  <Route
+                    path="/Memberinfo/:orderTag?"
+                    element={<MemberInfo />}
+                  />
                   <Route path="/NewPwd" element={<NewPwd />} />
                   <Route path="/ForgetPwd" element={<ForgetPwd />} />
 

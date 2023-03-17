@@ -1,44 +1,24 @@
 import { useState } from 'react'
-import GoogleButton from 'react-google-button'
 import './members.scss'
 import { Link } from 'react-router-dom'
-import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import md5 from 'md5'
 import Swal from 'sweetalert2'
 import AuthService from '../auth.service'
+import Eyes from '../components/Eyes'
 
 function Register() {
   const navigate = useNavigate()
 
-  //for show nad hide psasword eyes icons
+  //密碼顯示的眼睛開關
   const [passwordType, setPasswordType] = useState('password')
   const [passwordIcon, setPasswordIcon] = useState(<VisibilityOffIcon />)
-
-  const handleToggle = () => {
-    if (passwordType === 'password') {
-      setPasswordType('text')
-      setPasswordIcon(<VisibilityIcon />)
-    } else {
-      setPasswordType('password')
-      setPasswordIcon(<VisibilityOffIcon />)
-    }
-  }
 
   const [passwordType2, setPasswordType2] = useState('password')
   const [passwordIcon2, setPasswordIcon2] = useState(<VisibilityOffIcon />)
 
-  const handleToggle2 = () => {
-    if (passwordType2 === 'password') {
-      setPasswordType2('text')
-      setPasswordIcon2(<VisibilityIcon />)
-    } else {
-      setPasswordType2('password')
-      setPasswordIcon2(<VisibilityOffIcon />)
-    }
-  }
 
   const [user, setUser] = useState({
     email: '',
@@ -152,7 +132,7 @@ function Register() {
                     placeholder="請輸入email"
                     required
                   />
-                   <span className="error">{fieldErrors.email}</span>
+                  <span className="error">{fieldErrors.email}</span>
                   {/* <span className="error">{fieldErrors.password}</span> */}
                 </div>
                 <div className="group-password">
@@ -167,9 +147,15 @@ function Register() {
                     minLength={6}
                     maxLength={10}
                   />
-                  <span className="show-password-icon" onClick={handleToggle}>
+                  {/* <span className="show-password-icon" onClick={handleToggle}>
                     {passwordIcon}
-                  </span>
+                  </span> */}
+                  <Eyes
+                    passwordType={passwordType}
+                    setPasswordType={setPasswordType}
+                    passwordIcon={passwordIcon}
+                    setPasswordIcon={setPasswordIcon}
+                  ></Eyes>
                   <span className="error">{fieldErrors.password}</span>
                 </div>
                 <div className="group-password">
@@ -181,9 +167,15 @@ function Register() {
                     placeholder="請再次確認密碼"
                     required
                   />
-                  <span className="show-password-icon" onClick={handleToggle2}>
+                  {/* <span className="show-password-icon" onClick={handleToggle2}>
                     {passwordIcon2}
-                  </span>
+                  </span> */}
+                  <Eyes
+                    passwordType={passwordType2}
+                    setPasswordType={setPasswordType2}
+                    passwordIcon={passwordIcon2}
+                    setPasswordIcon={setPasswordIcon2}
+                  ></Eyes>
                   <span className="error">{fieldErrors.password2}</span>
                 </div>
               </div>

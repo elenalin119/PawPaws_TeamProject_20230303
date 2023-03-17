@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Table from '../Table'
+import Table from './Table'
 
 function ActivityOrder({ sid }) {
   const [orderList, setOrderList] = useState([])
@@ -22,7 +22,13 @@ function ActivityOrder({ sid }) {
     <>
       <Table
         orderList={orderList}
-        header={['a_pid', 'a_email', 'a_address', 'a_phone', 'a_name']} //
+        header={[
+          ['姓名', 'a_name'],
+          ['截止日期', 'deadline'],
+          ['活動名稱', 'title'],
+          ['活動地點', 'place'],
+          ['活動內容', 'content'],
+        ]} //
         sid={sid}
       ></Table>
     </>
