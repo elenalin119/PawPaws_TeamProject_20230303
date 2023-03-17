@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ActivityOrder from './ActivityOrder'
 import HotelOrder from './HotelOrder'
-import ShopOrder from './ShopOrder'
+// import ShopOrder from './ShopOrder'
 import styled from 'styled-components'
 
 const orderListArea = {
@@ -81,7 +81,7 @@ function Order() {
             </button>
             <hr />
             {/* 顯示當前分頁 */}
-            {currentTab === 0 && <ShopOrder sid={sid} />}
+            {/* {currentTab === 0 && <ShopOrder sid={sid} />} */}
             {currentTab === 1 && <HotelOrder sid={sid} />}
             {currentTab === 2 && <ActivityOrder sid={sid} />}
           </CollectTitle>
