@@ -4,7 +4,7 @@ import Info from '../components/Info'
 import Infocontain from '../components/Infocontain'
 import { useParams } from 'react-router-dom'
 
-function ActivityDetail(props) {
+function ActivityDetail() {
   const [activityDetail, setActivityDetail] = useState([])
   //const { activity_id } = props
   const { activity_id } = useParams()
