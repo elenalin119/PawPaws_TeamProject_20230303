@@ -168,165 +168,171 @@ export default function HotelBookingInfo() {
   }
 
   return (
-    <div className="hotelBookingInfoContainer">
-      <div className="hotelBookingMember">
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <div className="form-area-edit">
-            <div className="form-body">
-              <div className="profileArea">
-                <div className="profileName">
-                  <AccountCircleIcon />
-                  {email}
+    <>
+      <div className="hotelBookingInfoContainer">
+        <div className="hotelBookingMember">
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <div className="form-area-edit">
+              <div className="form-body">
+                <div className="profileArea">
+                  <div className="profileName">
+                    <AccountCircleIcon />
+                    {email}
+                  </div>
                 </div>
-              </div>
 
-              <div className="group">
-                <input
-                  type="text"
-                  name="UserName"
-                  id="UserName"
-                  value={userName}
-                  placeholder="請輸入姓名"
-                  onChange={(e) => setUserName(e.target.value)}
-                />
-                {/** 
-            <div className="group">
-               <input type="text" name="email" id="email" placeholder="請輸入email" required />
-            </div>
-            */}
-                <div className="group">
-                  <select
-                    value={year}
-                    onChange={(e) => {
-                      setYear(e.target.value)
-                      // 為了避免再次選年or月，要先清空日的選擇state
-                      // setDay('')
-                    }}
-                  >
-                    <option>我的出生年</option>
-                    {makeOptions(1940, 2015).map((v, i) => {
-                      return (
-                        <option key={v} value={v}>
-                          {v}
-                        </option>
-                      )
-                    })}
-                  </select>
-                  <select
-                    value={month}
-                    onChange={(e) => {
-                      setMonth(e.target.value)
-                    }}
-                  >
-                    <option>月份</option>
-                    {makeOptions(1, 12).map((v, i) => {
-                      return (
-                        <option key={v} value={v}>
-                          {v}
-                        </option>
-                      )
-                    })}
-                  </select>
-                  <select value={day} onChange={(e) => setDay(e.target.value)}>
-                    <option>日期</option>
-                    {year !== '' &&
-                      month !== '' &&
-                      makeOptions(1, new Date(year, month, 0).getDate()).map(
-                        (v, i) => {
-                          return (
-                            <option key={v} value={v}>
-                              {v}
-                            </option>
-                          )
-                        }
-                      )}
-                  </select>
-                </div>
                 <div className="group">
                   <input
-                    value={mobile}
                     type="text"
-                    name="mobile"
-                    id="mobile"
-                    placeholder="請輸入手機號碼"
-                    onChange={(e) => setMobile(e.target.value)}
+                    name="UserName"
+                    id="UserName"
+                    value={userName}
+                    placeholder="請輸入姓名"
+                    onChange={(e) => setUserName(e.target.value)}
                   />
-                </div>
-                <div className="group">
-                  <select
-                    onChange={(e) => handleCityChange(e.target.value)}
-                    value={city}
-                  >
-                    {cities.length > 0 &&
-                      cities.map((c, i) => {
-                        const jsx = (
-                          <option key={i} value={c} disabled hidden>
-                            {c}
-                          </option>
-                        )
-
-                        const jsx2 = (
-                          <option key={i} value={c}>
-                            {c}
-                          </option>
-                        )
-                        return i === 0 ? jsx : jsx2
-                      })}
-                  </select>
-                  <select
-                    onChange={(e) => handleDistrictChange(e.target.value)}
-                    value={district}
-                  >
-                    {districts &&
-                      districts[city].length > 0 &&
-                      districts[city].map((d, i) => {
+                  {/** 
+              <div className="group">
+                <input type="text" name="email" id="email" placeholder="請輸入email" required />
+              </div>
+              */}
+                  <div className="group">
+                    <select
+                      value={year}
+                      onChange={(e) => {
+                        setYear(e.target.value)
+                        // 為了避免再次選年or月，要先清空日的選擇state
+                        // setDay('')
+                      }}
+                    >
+                      <option>我的出生年</option>
+                      {makeOptions(1940, 2015).map((v, i) => {
                         return (
-                          <option key={i} value={d}>
-                            {d}
+                          <option key={v} value={v}>
+                            {v}
                           </option>
                         )
                       })}
-                  </select>
+                    </select>
+                    <select
+                      value={month}
+                      onChange={(e) => {
+                        setMonth(e.target.value)
+                      }}
+                    >
+                      <option>月份</option>
+                      {makeOptions(1, 12).map((v, i) => {
+                        return (
+                          <option key={v} value={v}>
+                            {v}
+                          </option>
+                        )
+                      })}
+                    </select>
+                    <select
+                      value={day}
+                      onChange={(e) => setDay(e.target.value)}
+                    >
+                      <option>日期</option>
+                      {year !== '' &&
+                        month !== '' &&
+                        makeOptions(1, new Date(year, month, 0).getDate()).map(
+                          (v, i) => {
+                            return (
+                              <option key={v} value={v}>
+                                {v}
+                              </option>
+                            )
+                          }
+                        )}
+                    </select>
+                  </div>
                   <div className="group">
                     <input
-                      value={address3}
+                      value={mobile}
                       type="text"
-                      placeholder="請輸入詳細地址"
-                      onChange={(e) => setAddress3(e.target.value)}
+                      name="mobile"
+                      id="mobile"
+                      placeholder="請輸入手機號碼"
+                      onChange={(e) => setMobile(e.target.value)}
                     />
+                  </div>
+                  <div className="group">
+                    <select
+                      onChange={(e) => handleCityChange(e.target.value)}
+                      value={city}
+                    >
+                      {cities.length > 0 &&
+                        cities.map((c, i) => {
+                          const jsx = (
+                            <option key={i} value={c} disabled hidden>
+                              {c}
+                            </option>
+                          )
+
+                          const jsx2 = (
+                            <option key={i} value={c}>
+                              {c}
+                            </option>
+                          )
+                          return i === 0 ? jsx : jsx2
+                        })}
+                    </select>
+                    <select
+                      onChange={(e) => handleDistrictChange(e.target.value)}
+                      value={district}
+                    >
+                      {districts &&
+                        districts[city].length > 0 &&
+                        districts[city].map((d, i) => {
+                          return (
+                            <option key={i} value={d}>
+                              {d}
+                            </option>
+                          )
+                        })}
+                    </select>
+                    <div className="group">
+                      <input
+                        value={address3}
+                        type="text"
+                        placeholder="請輸入詳細地址"
+                        onChange={(e) => setAddress3(e.target.value)}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </form>
-      </div>
-      <div className="hotelBookingHotel">
-        <hotelForm>
-          <div className="hotelFormContainer">
-            <div className="hotelFormImg">
-              <img
-                src="http://localhost:3000/images/Elena_img/hotel1.jpg"
-                alt=""
-                className="hbiImg"
-              />
-            </div>
-            <div className="hotelFormDetail">
-              <div>您的入住資訊</div>
-              <div>入住時間: 2023年3月22日(三)</div>
-              <div>退房時間: 2023年3月23日(四)</div>
-              <div>飯店名稱: 台北君悅酒店</div>
-              <div>飯店地址: 110台北市信義區松壽路2號</div>
-              <div>房型: 雙人房（一大床）一間</div>
-              <div>
-                入住人數
-                <div>成人:2人</div>
-                <div>兒童:2人</div>
-                <div>寵物:1位</div>
+          </form>
+        </div>
+        <div className="hotelBookingHotel">
+          <hotelForm>
+            <div className="hotelFormContainer">
+              <div className="hotelFormImg">
+                <img
+                  src="http://localhost:3000/images/Elena_img/hotel1.jpg"
+                  alt=""
+                  className="hbiImg"
+                />
               </div>
-              <div>價格: NT$ 9900元 (含稅價)</div>
+              <div className="hotelFormDetail">
+                <h4>您的入住資訊</h4>
+                <div>入住時間: 2023年3月22日(三)</div>
+                <div>退房時間: 2023年3月23日(四)</div>
+                <div>飯店名稱: 台北君悅酒店</div>
+                <div>飯店地址: 110台北市信義區松壽路2號</div>
+                <div>房型: 雙人房（一大床）一間</div>
+                <p></p>
+                <div>
+                  入住人數:
+                  <div>成人: 2 人</div>
+                  <div>兒童: 2 人</div>
+                  <div>寵物: 1 位</div>
+                </div>
+                <div>價格: NT$ 9,800元 (含稅價)</div>
+              </div>
             </div>
-          </div>
+          </hotelForm>
           <button
             className="hotelBookingInfoBtn"
             onClick={() => {
@@ -335,8 +341,8 @@ export default function HotelBookingInfo() {
           >
             確認預訂
           </button>
-        </hotelForm>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
