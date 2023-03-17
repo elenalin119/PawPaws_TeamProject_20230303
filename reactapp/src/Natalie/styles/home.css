@@ -1,0 +1,32 @@
+.fontbox{
+    margin: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to right, #8dd9ce, rgb(253, 185, 83));;
+    overflow: hidden;
+}
+.fonttext{
+    letter-spacing: 5px;
+    font-size: 100px;
+    white-space: nowrap;
+    color: #efefef;
+    float: left;
+    width: auto;
+    height: fit-content ;
+    white-space: nowrap;
+    animation: textScroll 60s linear infinite;
+    font-family: sans-serif;
+    /*字體*/
+    font-weight: bold;
+    -webkit-text-stroke: 4px white; /* Safari */
+    color: transparent;
+}
+
+@keyframes textScroll{
+    0%{
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(400px - 100%));
+    }
+}
