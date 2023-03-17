@@ -1,0 +1,15 @@
+.allshopcards{
+    margin: auto;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.cardbox {
+    margin: 1rem 1rem 1rem 0;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    width: calc(33.33% - 20px);
+    max-width: 247px;
+  }
