@@ -1,38 +1,49 @@
 import React from 'react'
-import Table from '../Table'
+import Table from './Table'
 
 function HotelOrder({ sid }) {
-  const orderList2 = [
-    {
-      id: 1,
-      customerName: 'Hotel',
-      orderDate: '2023-03-10',
-      product: 'apple10',
-      orderStatus: 'Processing',
-      sid: 1111,
-    },
-    {
-      id: 2,
-      customerName: 'Jane Smith',
-      orderDate: '2023-03-11',
-      product: 'apple11',
-      orderStatus: 'Shipped',
-      sid: 1085,
-    },
-    {
-      id: 3,
-      customerName: 'Bob Johnson',
-      orderDate: '2023-03-12',
-      product: 'apple12',
-      orderStatus: 'Delivered',
-      sid: 1085,
-    },
+  let orderList2 = [
+    // {
+    //   id: 1,
+    //   customerName: 'Hotel',
+    //   orderDate: '2023-03-10',
+    //   product: 'apple10',
+    //   orderStatus: 'Processing',
+    //   sid: 1009,
+    // },
+    // {
+    //   id: 2,
+    //   customerName: 'Jane Smith',
+    //   orderDate: '2023-03-11',
+    //   product: 'apple11',
+    //   orderStatus: 'Shipped',
+    //   sid: 1085,
+    // },
+    // {
+    //   id: 3,
+    //   customerName: 'Bob Johnson',
+    //   orderDate: '2023-03-12',
+    //   product: 'apple12',
+    //   orderStatus: 'Delivered',
+    //   sid: 1085,
+    // },
   ]
+
+  // orderList2 = orderList2.filter((order) => {
+  //   return order.sid === sid
+  // })
+
   return (
     <>
       <Table
         orderList={orderList2}
-        header={['id', 'customerName', 'orderDate', 'product', 'orderStatus']}
+        header={[
+          ['姓名', 'a_name'],
+          ['活動名稱', 'title'],
+          ['活動地點', 'place'],
+          ['截止日期', 'deadline'],
+          ['活動內容', 'content'],
+        ]}
         sid={sid}
       ></Table>
     </>

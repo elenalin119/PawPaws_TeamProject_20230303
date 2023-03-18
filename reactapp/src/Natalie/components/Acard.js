@@ -17,7 +17,7 @@ function Acard(props) {
   const handleClick = (aid) => {
     navigate(`/activity/detail/${aid}`)
   }
-  console.log(activity)
+  console.log('activity', activity)
   return (
     <div>
       <Splide

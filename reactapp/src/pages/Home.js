@@ -1,58 +1,64 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Mainphoto from '../Elena/components/mainphoto/Mainphoto'
+import SlideWord from '../Natalie/components/SlideWord'
 import Slide from '../Natalie/components/Slide'
+import FeaturedProperties from '../Elena/components/featuredProperties/FeaturedProperties'
+import ShopCard from '../Natalie/components/ShopCard'
 
 function Home() {
   return (
     <>
-      <Mainphoto />
+      <SlideWord />
+      <HomePicture>
+        <img src="../images/Natalie_img/pawpaws.png" alt="pawpaws" />
+      </HomePicture>
+      <SlideWord />
       {/* 商城 */}
       <Htitle>
-        <h5>Pets Shop</h5>
+        <h1>Pets Shop</h1>
         <p>寵物商城</p>
       </Htitle>
       <Line>
         <hr />
       </Line>
-
       <Picture>
         <img src="../images/Natalie_img/hp01.jpg" alt="AC06" />
       </Picture>
-
+      <ShopCard />
       <Btn>
-        <Link to={`/shop`}></Link>
-        <button>看更多>></button>
+        <Link to={'/shop'}>
+          <button>看更多>></button>
+        </Link>
       </Btn>
-
       {/* 旅館 */}
       <Htitle>
-        <h5>Pets Hotels</h5>
+        <h1>Pets Hotels</h1>
         <p>寵物住宿</p>
       </Htitle>
       <Line>
         <hr />
       </Line>
-
       <Picture>
-        <img src="../images/Natalie_img/hp01.jpg" alt="AC06" />
+        <img src="../images/Natalie_img/hp5.jpg" alt="hp05" />
       </Picture>
-
+      <FeaturedProperties />
       <Btn>
-        <Link to={`/hotel`}></Link>
-        <button>看更多>></button>
+        <Link to={`/hotel`}>
+          <button>看更多>></button>
+        </Link>
       </Btn>
-
-      {/* 寵物活動 */}
-      <Htitle>
-        <h5>Pets Activity</h5>
-        <p>寵物活動</p>
-      </Htitle>
       <Line>
         <hr />
       </Line>
-
+      {/* 寵物活動 */}
+      <Htitle>
+        <h1>Pets Activity</h1>
+        <p>寵物活動</p>
+      </Htitle>
+      <Picture>
+        <img src="../images/Natalie_img/hp6.jpg" alt="hp05" />
+      </Picture>
       <Slide />
       <Btn>
         <Link to={`/activity`}>
@@ -64,21 +70,51 @@ function Home() {
 }
 
 const Htitle = styled.div`
-  margin: 50px auto;
+  position: absolute;
+  z-index: 1; /* 將文字元素的z-index設為較高的值，讓它們疊在圖像上面 */
+  color: #ffffff;
+  margin: 138px auto;
   text-align: center;
-  background: #fff5ea;
-  width: 10%;
+  width: 100%;
   min-width: 100px;
+  letter-spacing: 2px;
+  h1 {
+    font-weight: bolder;
+  }
+  p {
+    font-size: 24px;
+    font-weight: bolder;
+  }
 `
 const Line = styled.div`
   hr {
-    color: #ffb544;
+    border: none;
+    border-top: 3px solid #ffb544;
   }
 `
+
+const HomePicture = styled.div`
+  margin: 0;
+  position: relative;
+  width: 100%;
+  height: 80%;
+  img {
+    display: inline-block;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    max-height: 600px;
+    overflow: hidden;
+  }
+`
+
 const Picture = styled.div`
   width: 100%;
   height: 100%;
+  margin-bottom: 2rem;
   img {
+    position: relative;
+    filter: brightness(0.7);
     object-fit: cover;
     object-position: center center;
     width: 100%;

@@ -67,7 +67,6 @@ router.post('/checklogin', async (req, res, next) => {
 
 //會員註冊
 router.post('/register', async (req, res, next) => {
-
   const { email, password } = req.body
   const sql = `INSERT INTO members ( email, password ) VALUES (?,?)`
 
@@ -239,14 +238,25 @@ router.post('/changePassword', async function (req, res) {
   )
 })
 
+//活動訂單
 router.get('/getActivityData/:sid', async (req, res) => {
   const sid = req.params.sid
 
-  const sql = 'SELECT * FROM `participants` WHERE sid=?;'
+  const sql =
+    'SELECT * FROM `participants` AS a JOIN activity AS b ON a.activity_id=b.activity_id WHERE sid=?;'
   const [rows] = await db.query(sql, [sid])
 
   return res.json(rows)
 })
 
+// 商城訂單
+router.get('/getOrderData/:sid', async (req, res) => {
+  const sid = req.params.sid
+
+  const sql = 'SELECT * FROM s_order WHERE s_order_user_id =?'
+  const [rows] = await db.query(sql, [sid])
+
+  return res.json(rows)
+})
 // http://localhost:3000/members/getActivityData/2
 module.exports = router

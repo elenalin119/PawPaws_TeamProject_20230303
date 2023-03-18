@@ -8,7 +8,7 @@ button{
   font-size: 13px;
 }
 }
-.formHeader{
+.userFormHeader{
     display: flex;
     // max-width: 600px;
     margin: 0;
@@ -16,7 +16,7 @@ button{
     margin: auto;
     // width: 600px;
   }
-  .formHeader button{
+  .userFormHeader button{
     flex: 0 0 25%;
     max-width: 150px;
     font-size: 16px;
@@ -26,7 +26,7 @@ button{
     border-radius: 10px 10px 0px 0px;
   }
 
-  .formHeader button.active{
+  .userFormHeader button.active{
     background-color: #8DD9CE;
     color:#fff;
   }
@@ -35,11 +35,12 @@ button{
     color: #fff;
     text-decoration: none;
   }
-
-  .group span{
+.group{
+  position: relative;
+  .span{
     font-size: 13px;
   }
-  .group select{
+  .select{
     padding: 10px;
     margin-right: 10px;
     border: 1px solid #8DD9CE;
@@ -47,6 +48,9 @@ button{
     letter-spacing: 0.5px;
     font-size: 13px;
   }
+}
+
+
   .group span{
     display: block;
     margin: 0 0 10px;
@@ -69,20 +73,23 @@ button{
 
 
   @media screen and (min-width:768px){
-    .group select{
-      font-size: 16px;
+  .group{
+    position: relative;
+    select{
+    font-size: 16px;
     }
-    .group span{
-      font-size: 16px;
-      margin: 0 0 10px 0;
+    span{
+    font-size: 16px;
+    margin: 0 0 10px 0;
     }
+  }
     button{
       font-size: 16px;
     }
     .profileArea button{   
       font-size: 16px;
     }
-    .formHeader{
+    .userFormHeader{
       width: 600px;
     }
 
