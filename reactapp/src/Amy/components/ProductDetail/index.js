@@ -137,8 +137,8 @@ export default function ProductDetail({ open, onClose, product }) {
             }}
           >
             <FacebookIcon />
-            <TwitterIcon sx={{ pl: 2 }} />
-            <InstagramIcon sx={{ pl: 2 }} />
+            <TwitterIcon />
+            <InstagramIcon  />
           </Box>
         </ProductDetailInfoWrapper>
       </DialogContent>
