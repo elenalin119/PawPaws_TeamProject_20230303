@@ -20,9 +20,9 @@ function ShopOrder({ sid }) {
   }, [])
 
 
-  orderList3 = orderList3.filter((order) => {
-    return order.sid === sid
-  })
+  // orderList3 = orderList3.filter((order) => {
+  //   return order.sid === sid
+  // })
 
   return (
     <>
