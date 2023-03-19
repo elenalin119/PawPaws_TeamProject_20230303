@@ -75,7 +75,6 @@ export default function Edit() {
       user.address === fullAddress
 
     const data = {
-
       name: userName,
       email,
       birthday: `${year}-${month}-${day}`,
@@ -100,7 +99,6 @@ export default function Edit() {
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          // localStorage.setItem('email', response.data.userInfo.email)
           localStorage.setItem('user', JSON.stringify(response.data.userInfo))
         })
         //
@@ -156,7 +154,6 @@ export default function Edit() {
       handleCityChange(addressAll[0])
     }
     if (addressAll[1]) {
-      console.log('addressAll[1]', addressAll[1])
       setTimeout(() => {
         handleDistrictChange(addressAll[1])
       }, 100)

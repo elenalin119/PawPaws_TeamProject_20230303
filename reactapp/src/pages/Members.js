@@ -13,10 +13,6 @@ import Eyes from '../Abby/components/Eyes'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import styled from 'styled-components'
 
-
-const EyesIcon = styled.div`
-
-`
 function Members() {
   const navigate = useNavigate()
 
@@ -74,8 +70,6 @@ function Members() {
       userEmail,
       userPassword: encryption,
     })
-
-    console.log('response', response)
 
     if (response.data.state) {
       Swal.fire({

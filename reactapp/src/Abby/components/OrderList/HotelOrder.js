@@ -39,10 +39,10 @@ function HotelOrder({ sid }) {
         orderList={orderList2}
         header={[
           ['姓名', 'a_name'],
-          ['活動名稱', 'title'],
-          ['活動地點', 'place'],
-          ['截止日期', 'deadline'],
-          ['活動內容', 'content'],
+          ['飯店名稱', 'title'],
+          ['飯店地點', 'place'],
+          ['日期', 'deadline'],
+          ['內容', 'content'],
         ]}
         sid={sid}
       ></Table>

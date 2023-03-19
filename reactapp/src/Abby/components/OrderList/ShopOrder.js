@@ -1,4 +1,3 @@
-
 import Table from './Table'
 import React, { useState, useEffect } from 'react'
 
@@ -19,15 +18,13 @@ function ShopOrder({ sid }) {
     getOrderData()
   }, [])
 
-
-  orderList3 = orderList3.filter((order) => {
-    return order.sid === sid
-  })
+  // orderList3 = orderList3.filter((order) => {
+  //   return order.sid === sid
+  // })
 
   return (
     <>
       <Table
-
         orderList={orderList}
         header={[
           ['訂單編號', 's_order_id'],
@@ -35,9 +32,9 @@ function ShopOrder({ sid }) {
           ['訂購金額', 's_order_total'],
           ['付款方式', 's_order_pay'],
           ['出貨狀態', 's_order_ship'],
-
         ]}
-        sid={sid}
+        sid={sid
+        }
       ></Table>
     </>
   )
